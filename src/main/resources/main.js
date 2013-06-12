@@ -1,18 +1,14 @@
 var when = require("when.js");
-function loadImage (src) {
+function operation (message) {
 	var deferred = when.defer();
 	setTimeout(function(){
-		deferred.resolve(src);
+		deferred.resolve(message);
 	},1000);
 	return deferred.promise;
 }
 
-loadImage('http://google.com/favicon.ico').then(
+operation('Hello World').then(
 	function gotIt(img) {
 		console.log(img); 
-	}
-).then(
-	function shout(img) {
-		console.log('see my new ' + img + '?');
 	}
 );
